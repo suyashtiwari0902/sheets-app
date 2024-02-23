@@ -1,0 +1,68 @@
+/* src/Homepage.css */
+.Homepage {
+    text-align: center;
+    margin: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    /* background-color: antiquewhite; */
+  }
+  
+  .sync-button {
+    background-color: #ebb8d3;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .buttons-container button {
+    margin: 10px;
+  }
+  .app-header {
+    background-color: #3498db;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .app-header h1 {
+    color: #fff;
+    font-size: 40px;
+  }
+
+  .sync-button:hover {
+    background-color: #edcfcf;
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .data-table th,
+  .data-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    /* border-radius: 40px; */
+  }
+  
+  .data-table th {
+    background-color: #f8f8f8;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .data-table tr:hover {
+    background-color: #edcfcf;
+  }
+  
