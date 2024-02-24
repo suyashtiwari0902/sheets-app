@@ -1,4 +1,4 @@
-// src/AddRowForm.js
+
 import React, { useState } from 'react';
 import './AddRowForm.css';
 const AddRowForm = ({ onAddRow }) => {
@@ -6,7 +6,6 @@ const AddRowForm = ({ onAddRow }) => {
     ID: '',
     'Avatar Name': '',
     'Performance Score': '',
-    // Add more fields as needed
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -22,7 +21,7 @@ const AddRowForm = ({ onAddRow }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddRow(formData);
-    setFormData(initialFormData); // Reset form fields after submission
+    setFormData(initialFormData); 
   };
 
   return (
@@ -46,8 +45,6 @@ const AddRowForm = ({ onAddRow }) => {
       </label>
         <input type="text" id="performanceScore" name="Performance Score" value={formData['Performance Score']} onChange={handleChange} />
       </div>
-      {/* Add more input fields for additional columns */}
-
       <button type="submit">Add Row</button>
     </form>
   );
