@@ -65,7 +65,7 @@ const Homepage = () => {
     const fetchDataFromSheet = async () => {
       try {
         const response = await fetch(
-          `https://sheetdb.io/api/v1/94rbjtqoxmgj0`
+          `https://sheetdb.io/api/v1/c9f4husm6jqdd`
         );
         const data = await response.json();
         // console.log(data[0]);
@@ -79,7 +79,7 @@ const Homepage = () => {
 
     const addRow = async (newRowData) => {
         try {
-          const response = await fetch(`https://sheetdb.io/api/v1/94rbjtqoxmgj0`, {
+          const response = await fetch(`https://sheetdb.io/api/v1/c9f4husm6jqdd`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
