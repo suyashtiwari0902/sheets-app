@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './Homepage.css'; 
 import AddRowForm from "../AddRowForm/AddRowForm";
 const Homepage = () => {
     const [data, setData] = useState([]);
     const [showTable, setShowTable] = useState(false);
     const [showForm, setShowForm] = useState(false);
+    const [autoSync, setAutoSync] = useState(false);
 
     const fetchDataFromSheet = async () => {
       try {
@@ -14,6 +15,7 @@ const Homepage = () => {
         const data = await response.json();
         // console.log(data[0]);
         setData(data || []);
+        setShowForm(false);
         setShowTable(true);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -42,6 +44,17 @@ const Homepage = () => {
         setShowTable(false);
       };
 
+      const toggleAutoSync = () => {
+        setAutoSync(!autoSync);
+      };
+
+      useEffect(() => {
+        if (autoSync) {
+          const intervalId = setInterval(fetchDataFromSheet, 500); 
+          return () => clearInterval(intervalId); 
+        }
+      }, [autoSync]);
+
     const columns = ["ID", "Avatar Name", "Performance Score"];
   
     return (
@@ -55,6 +68,9 @@ const Homepage = () => {
         </button>
         <button className="add-record-button" onClick={toggleForm}>
           Add Record
+        </button>
+        <button className={`auto-sync-button ${autoSync ? 'active' : ''}`} onClick={toggleAutoSync}>
+          Auto Sync is {autoSync ? 'ON' : 'OFF'}
         </button>
       </div>
         {showForm && <AddRowForm onAddRow={addRow}/> }
